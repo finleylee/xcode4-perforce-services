@@ -172,7 +172,7 @@ else
 
 	. $P4CONFIG
 
-	RESULT=$(/usr/local/bin/p4 -p $P4PORT -c $P4CLIENT -u $P4USER edit $TARGET_FILE 2&gt;&amp;1)
+	RESULT=$(/usr/local/bin/p4 -p $P4PORT -c $P4CLIENT -u $P4USER edit "$TARGET_FILE" 2&gt;&amp;1)
 
 	echo $RESULT
 fi</string>
