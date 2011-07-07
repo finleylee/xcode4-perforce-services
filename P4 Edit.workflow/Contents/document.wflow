@@ -47,11 +47,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}
-	tell application id "com.apple.dt.Xcode"
-		set output to path of last source document
-	end tell
-end run</string>
+					<string>on run {input, parameters}	tell application id "com.apple.dt.Xcode"		set output to path of last source document	end tellend run</string>
 				</dict>
 				<key>Application</key>
 				<array>
@@ -176,7 +172,7 @@ else
 
 	. $P4CONFIG
 
-	RESULT=$(/usr/local/bin/p4 -p $P4PORT -c $P4CLIENT -u $P4USER edit "$TARGET_FILE" 2&gt;&amp;1)
+	RESULT=$(/usr/local/bin/p4 -p $P4PORT -c $P4CLIENT -u $P4USER edit $TARGET_FILE 2&gt;&amp;1)
 
 	echo $RESULT
 fi</string>
@@ -340,25 +336,7 @@ fi</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}
-	set results to first item of input as text
-	
-	tell application "GrowlHelperApp"
-		-- Make a list of all the notification types that this script will ever send:
-		set the allNotificationsList to {"P4Edit Notification"}
-		
-		-- Make a list of the notifications that will be enabled by default: 
-		set the enabledNotificationsList to {"P4Edit Notification"}
-		
-		-- Register our script with growl:
-		register as application "P4Edit Service" all notifications allNotificationsList default notifications enabledNotificationsList icon of application "P4V"
-		
-		-- Send a Notification:
-		notify with name "P4Edit Notification" title "P4 Edit" description results application name "P4Edit Service"
-		
-	end tell
-	return input
-end run</string>
+					<string>on run {input, parameters}	set results to first item of input as text		tell application "GrowlHelperApp"		-- Make a list of all the notification types that this script will ever send:		set the allNotificationsList to {"P4Edit Notification"}				-- Make a list of the notifications that will be enabled by default: 		set the enabledNotificationsList to {"P4Edit Notification"}				-- Register our script with growl:		register as application "P4Edit Service" all notifications allNotificationsList default notifications enabledNotificationsList icon of application "P4V"				-- Send a Notification:		notify with name "P4Edit Notification" title "P4 Edit" description results application name "P4Edit Service"			end tell	return inputend run</string>
 				</dict>
 				<key>Application</key>
 				<array>
